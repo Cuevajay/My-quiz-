@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Quiz</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0f0f0f;
+      color: #eaeaea;
+    }
+    h1 {
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .level {
+      display: none;
+      min-height: 100vh;
+    }
+    .level.active {
+      display: block;
+    }
+    p {
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 16px;
+      background: #1c1c1c;
+      border: 1px solid #333;
+      color: #fff;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 12px;
+      padding: 14px;
+      width: 100%;
+      background: #fff;
+      color: #000;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .difficulty {
+      font-size: 12px;
+      opacity: 0.5;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- LEVEL 1 -->
+<section id="l1" class="level active">
+  <div class="difficulty">Level 1 · Easy</div>
+  <h1>Question 1</h1>
+  <p>What do you call feelings that grow slowly over time?</p>
+  <input id="a1" placeholder="Answer" />
+  <button onclick="check1()">Next</button>
+</section>
+
+<!-- LEVEL 2 -->
+<section id="l2" class="level">
+  <div class="difficulty">Level 2 · Easy–Medium</div>
+  <h1>Question 2</h1>
+  <p>What is the stage of grief where you accept reality as it is?</p>
+  <input id="a2" placeholder="Answer" />
+  <button onclick="check2()">Next</button>
+</section>
+
+<!-- LEVEL 3 -->
+<section id="l3" class="level">
+  <div class="difficulty">Level 3 · Medium</div>
+  <h1>Question 3</h1>
+  <p>What do you call love that is not returned? (single word)</p>
+  <input id="a3" placeholder="Answer" />
+  <button onclick="check3()">Next</button>
+</section>
+
+<!-- LEVEL 4 -->
+<section id="l4" class="level">
+  <div class="difficulty">Level 4 · Medium–Hard</div>
+  <h1>Question 4</h1>
+  <p>What psychological term describes emotional attachment formed over long periods? (searchable)</p>
+  <input id="a4" placeholder="Answer" />
+  <button onclick="check4()">Next</button>
+</section>
+
+<!-- LEVEL 5 -->
+<section id="l5" class="level">
+  <div class="difficulty">Level 5 · Hard</div>
+  <h1>Final</h1>
+  <p>Enter the name.</p>
+  <p>Only one word.</p>
+  <input id="a5" placeholder="name" />
+  <button onclick="check5()">Finish</button>
+</section>
+
+<script>
+function show(hide, showId) {
+  document.getElementById(hide).classList.remove('active');
+  document.getElementById(showId).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function check1() {
+  const v = a1.value.toLowerCase().trim();
+  if(v === 'feelings' || v === 'affection') show('l1','l2');
+  else alert('Incorrect');
+}
+
+function check2() {
+  const v = a2.value.toLowerCase().trim();
+  if(v === 'acceptance') show('l2','l3');
+  else alert('Incorrect');
+}
+
+function check3() {
+  const v = a3.value.toLowerCase().trim();
+  if(v === 'unrequited') show('l3','l4');
+  else alert('Incorrect');
+}
+
+function check4() {
+  const v = a4.value.toLowerCase().trim();
+  if(v === 'attachment') show('l4','l5');
+  else alert('Incorrect');
+}
+
+function check5() {
+  // Redirects directly to your Google Drive photo/text
+  window.location.href = 'https://drive.google.com/file/d/14LEmmN3CJOEUKTSxtcGAEt2MOBoUzi-d/view';
+}
+</script>
+
+</body>
+  </html>
